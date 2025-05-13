@@ -3,10 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title>Übungen Mathematik Klasse 2</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>Mathematik Klasse 2</header>
-    <main></main>
-    <footer>Mehr Hilfe? <a hfref="https://www.youtube.com/channel/UCy0FxMgGUlRnkxCoNZUNRQQ">Lehrer Schmidt</a> oder <a href="https://www.youtube.com/@dianawegel">Die Grundschullehrerin</a></footer>
+    <main>
+      <h1>Plus-Rechnen mit Kugeln</h1>
+  <div class="container">
+    <div id="red-container" class="ball-container">
+      <h2>Rote Kugeln</h2>
+    </div>
+    <div id="blue-container" class="ball-container">
+      <h2>Blaue Kugeln</h2>
+    </div>
+  </div>
+  <div id="target-container" class="ball-container">
+    <h2>Ziel (Zehnerfeld)</h2>
+  </div>
+  <button onclick="startGame()">Start!</button><br>
+  <script src="functions.js"></script>
+    </main>
+    <footer>Mehr Hilfe? <a href="https://www.youtube.com/channel/UCy0FxMgGUlRnkxCoNZUNRQQ">Lehrer Schmidt</a> oder <a href="https://www.youtube.com/@dianawegel">Die Grundschullehrerin</a></footer>
   </body>
 </html>
