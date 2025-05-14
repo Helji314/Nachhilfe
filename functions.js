@@ -1,5 +1,6 @@
 let redCount = 0;
 let target = 10;
+let blueCount = 0; // Zähler für blaue Kugeln im Ziel
 
 function createBall(color) {
     const ball = document.createElement("div");
@@ -54,14 +55,9 @@ function createBall(color) {
   
     target.addEventListener("drop", (e) => {
       e.preventDefault();
-      const color = e.dataTransfer.getData("text/plain");
-      const draggedBall = document.querySelector(`.ball.${color}`);
+      const draggedBall = document.querySelector(".dragging");
       if (draggedBall) {
         target.appendChild(draggedBall);
-      }
-      const totalInTarget = countBallsInTarget();
-      if (totalInTarget === 10) {
-        setTimeout(showSuccess, 200); // kleines Delay für UX
       }
     });
   // Extra: macht Ball sichtbar als "dragging"
@@ -85,3 +81,43 @@ function createBall(color) {
   }, 3000);
 }  
   
+function showFailure() {
+  const container = document.querySelector("main");
+  const missingBalls = target - countBallsInTarget();
+  const message = document.createElement("div"); // <--- Fehlte!
+  message.classList.add("failure-message");
+  message.innerHTML = `❌ Oops! Dir fehlen noch ${missingBalls} Kugel${missingBalls > 1 ? "n" : ""}. 😅`;
+  container.appendChild(message);
+
+  // Animation entfernen nach ein paar Sekunden
+  setTimeout(() => {
+    message.remove();
+  }, 3000);
+}
+
+function showTooManyBalls() {
+  const container = document.querySelector("main");
+  const message = document.createElement("div");
+  const totalBallsInTarget = countBallsInTarget();
+  message.classList.add("too-many-message");
+  message.innerHTML = `❌ Zu viele Kugeln! Du hast bereits ${totalBallsInTarget} Kugeln im Ziel. Versuche es nochmal! 😅`;
+  container.appendChild(message);
+
+  // Animation entfernen nach ein paar Sekunden
+  setTimeout(() => {
+    message.remove();
+  }, 3000);
+}
+
+// Abgabe-Button: Überprüfen der Aufgabe
+document.getElementById("submit-button").addEventListener("click", () => {
+  const totalInTarget = countBallsInTarget();
+  if (totalInTarget === 10) {
+    showSuccess();
+  } else if (totalInTarget > 10) {
+    showTooManyBalls();
+  } else {
+    showFailure();
+  }
+});
+
