@@ -110,7 +110,7 @@ function createBall(color) {
   // Animation entfernen nach ein paar Sekunden
   setTimeout(() => {
     message.remove();
-  }, 3000);
+  }, 5000);
 }  
   
 function showFailure() {
@@ -124,7 +124,7 @@ function showFailure() {
   // Animation entfernen nach ein paar Sekunden
   setTimeout(() => {
     message.remove();
-  }, 3000);
+  }, 5000);
 }
 
 function showTooManyBalls() {
@@ -138,7 +138,7 @@ function showTooManyBalls() {
   // Animation entfernen nach ein paar Sekunden
   setTimeout(() => {
     message.remove();
-  }, 3000);
+  }, 5000);
 }
 
 // Abgabe-Button: Überprüfen der Aufgabe

@@ -14,7 +14,7 @@ body {
     border: 1px solid #aaa;
     padding: 10px;
     width: 200px;
-    min-height: 200px;
+    min-height: 250px;
     background: #fff;
   }
   
@@ -30,16 +30,33 @@ body {
   .red {
     background-color: red;
   }
-  
+  .rot{
+    color: red;
+  }
   .blue {
     background-color: blue;
   }
-  
+  .blau {
+    color: blue;
+  }
   #target-container {
+    width: auto;
+    margin-top: 10px;
     background-color: #f9f9f9;
-    border: 2px dashed #666;
+    border: 2px dashed #772f6e;
+  }
+  .button-container {
+    display: flex;
+    gap: 15px; /* Abstand zwischen Buttons */
+    margin-bottom: 50px; /* Abstand zum Footer */
+    margin-top: 20px;
   }
   .success-message {
+    position: fixed; /* Positioniere sie fest auf dem Bildschirm */
+    transform: translateX(-50%);
+    z-index: 1000;
+    top: 20px; /* Abstand vom oberen Rand */
+    left: 50%; /* Horizontal zentrieren */
     margin-top: 20px;
     padding: 10px;
     background-color: #c2f0c2;
@@ -50,6 +67,11 @@ body {
     text-align: center;
   }
   .too-many-message {
+    position: fixed; /* Positioniere sie fest auf dem Bildschirm */
+    transform: translateX(-50%);
+    z-index: 1000;
+    top: 20px; /* Abstand vom oberen Rand */
+    left: 50%; /* Horizontal zentrieren */
     margin-top: 20px;
     padding: 10px;
     background-color: #f8d7da;
@@ -60,6 +82,11 @@ body {
     text-align: center;
   }
   .failure-message {
+    position: fixed; /* Positioniere sie fest auf dem Bildschirm */
+    transform: translateX(-50%);
+    z-index: 1000;
+    top: 20px; /* Abstand vom oberen Rand */
+    left: 50%; /* Horizontal zentrieren */
     margin-top: 20px;
     padding: 10px;
     background-color: #f8d7da;
@@ -71,11 +98,11 @@ body {
   }
   @keyframes pop-in {
     0% {
-      transform: scale(0.7);
+      transform: translateY(-20px);
       opacity: 0;
     }
     100% {
-      transform: scale(1);
+      transform: translateY(0);
       opacity: 1;
     }
   }
