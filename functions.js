@@ -14,7 +14,39 @@ function createBall(color) {
   
     return ball;
   }
+  function makeContainerDroppable(container) {
+    container.addEventListener("dragover", (e) => {
+      e.preventDefault();
+    });
   
+    container.addEventListener("drop", (e) => {
+      e.preventDefault();
+      const draggedBall = document.querySelector(".dragging");
+      if (draggedBall) {
+        container.appendChild(draggedBall);
+      }
+    });
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    const targetContainerEl = document.getElementById("target-container");
+    const redContainer = document.getElementById("red-container");
+    const blueContainer = document.getElementById("blue-container");
+  
+    // Zielbereich als Drop-Ziel
+    makeContainerDroppable(targetContainerEl);
+    makeContainerDroppable(redContainer);
+    makeContainerDroppable(blueContainer);
+  
+    // Drag-Effekt sichtbar machen
+    document.addEventListener("dragstart", (e) => {
+      e.target.classList.add("dragging");
+    });
+  
+    document.addEventListener("dragend", (e) => {
+      e.target.classList.remove("dragging");
+    });
+  });
+    
   function startGame() {
     // Leere vorherige Bälle
     const redContainer = document.getElementById("red-container");
