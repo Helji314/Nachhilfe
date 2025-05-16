@@ -1,6 +1,9 @@
 let redCount = 0;
 let target = 10;
 let blueCount = 0; // Zähler für blaue Kugeln im Ziel
+const popup = document.getElementById("popup");
+const overlay = document.getElementById("overlay");
+const closePopup = document.getElementById("closePopup");
 
 function createBall(color) {
     const ball = document.createElement("div");
@@ -69,6 +72,8 @@ function createBall(color) {
       const blue = createBall("blue");
       blueContainer.appendChild(blue);
     }
+    popup.style.display = "block";
+    overlay.style.display = "block";
   }
   
       // Zählen, wie viele Kugeln im Zielbereich
@@ -99,6 +104,13 @@ function createBall(color) {
     document.addEventListener("dragend", (e) => {
       e.target.classList.remove("dragging");
     });
+  });
+
+  closePopup.addEventListener("click", () => {
+    popup.style.display = "none";
+    overlay.style.display = "none";
+    // Hier kann die Spiellogik gestartet werden
+    alert("Spiel startet jetzt!");
   });
   function showSuccess() {
     const container = document.querySelector("main");
