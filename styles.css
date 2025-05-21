@@ -233,3 +233,13 @@ Siehe LICENSE.txt für weitere Infos
     cursor: pointer;
     margin-top: 20px;
   }
+  .result-form {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  .result-form input {
+    padding: 5px;
+    font-size: 16px;
+    width: 80px;
+    text-align: center;
+  }

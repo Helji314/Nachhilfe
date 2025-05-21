@@ -5,6 +5,8 @@ const popup = document.getElementById("popup");
 const overlay = document.getElementById("overlay");
 const closePopup = document.getElementById("closePopup");
 
+
+
 function createBall(color) {
     const ball = document.createElement("div");
     ball.classList.add("ball", color);
@@ -116,7 +118,7 @@ function createBall(color) {
     const container = document.querySelector("main");
     const message = document.createElement("div");
     message.classList.add("success-message");
-    message.innerHTML = "🎉 Super! Du hast 10 Kugeln zusammengestellt!";
+    message.innerHTML = "Richtig! Das sind 10 Kugeln 🎉";
     container.appendChild(message);
 
   // Animation entfernen nach ein paar Sekunden
@@ -130,7 +132,7 @@ function showFailure() {
   const missingBalls = target - countBallsInTarget();
   const message = document.createElement("div"); // <--- Fehlte!
   message.classList.add("failure-message");
-  message.innerHTML = `❌ Oops! Dir fehlen noch ${missingBalls} Kugel${missingBalls > 1 ? "n" : ""}. 😅`;
+  message.innerHTML = `❌ Schade! Dir fehl${missingBalls > 1 ? "en" : "t"} noch ${missingBalls} Kugel${missingBalls > 1 ? "n" : ""}. 😅`;
   container.appendChild(message);
 
   // Animation entfernen nach ein paar Sekunden
@@ -144,7 +146,7 @@ function showTooManyBalls() {
   const message = document.createElement("div");
   const totalBallsInTarget = countBallsInTarget();
   message.classList.add("too-many-message");
-  message.innerHTML = `❌ Zu viele Kugeln! Du hast bereits ${totalBallsInTarget} Kugeln im Ziel. Versuche es nochmal! 😅`;
+  message.innerHTML = `❌ Zu viele Kugeln! Das sind schon ${totalBallsInTarget} Kugeln. Versuche es nochmal! 😅`;
   container.appendChild(message);
 
   // Animation entfernen nach ein paar Sekunden
@@ -157,11 +159,41 @@ function showTooManyBalls() {
 document.getElementById("submit-button").addEventListener("click", () => {
   const totalInTarget = countBallsInTarget();
   if (totalInTarget === 10) {
+    const blueLeft = document.querySelectorAll("#blue-container .blue").length;
     showSuccess();
+    askForFinalResult(blueLeft);
   } else if (totalInTarget > 10) {
     showTooManyBalls();
   } else {
     showFailure();
   }
 });
+function askForFinalResult(remainingBlues) {
+  const container = document.querySelector("main");
+  const form = document.createElement("div");
+  form.classList.add("result-form");
 
+  form.innerHTML = `
+    <p>Wie viel ist das insgesamt?</p>
+    <input type="number" id="final-result-input" />
+    <button class="button" id="check-final-result">Prüfen</button>
+  `;
+
+  container.appendChild(form);
+
+  const userInput = form.querySelector("#final-result-input");
+  const checkBtn = form.querySelector("#check-final-result");
+
+  const total = 10 + remainingBlues;
+
+  checkBtn.addEventListener("click", () => {
+    const answer = parseInt(userInput.value, 10);
+    if (answer === total) {
+      form.innerHTML = `<p>✅ Richtig! ${10} + ${remainingBlues} = ${total}</p>`;
+    } else {
+      form.innerHTML = `<p>❌ Leider falsch. ${10} + ${remainingBlues} = ${total}</p>`;
+    }
+
+    setTimeout(() => form.remove(), 5000);
+  });
+}
