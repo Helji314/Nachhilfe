@@ -1,0 +1,26 @@
+{
+    "title": "Übungen Mathematik Klasse 2",
+    "language.de": "Allemand",
+    "language.en": "Anglais",
+    "language.fr": "Français",
+    "popupTitle": "Aufgabe",
+    "popupIntro": "Hier sollst du plus (+) rechnen!",
+    "popupInstruction": "Nehme erst alle roten Kugeln, dann die Blauen. Zusammen soll es 10 ergeben.",
+    "popupStart": "Los geht's!",
+    "mainTitle": "Plus-Rechnen mit Kugeln",
+    "redBalls": "Rote Kugeln",
+    "blueBalls": "Blaue Kugeln",
+    "target": "Ziel (Zehnerfeld)",
+    "startButton": "Start!",
+    "submit": "Abgabe",
+    "success": "Richtig! Das sind {{count}} Kugeln 🎉",
+    "failure": "❌ Schade! Dir fehl{{pluralMissing}} noch {{count}} Kugel{{pluralEnd}}. 😅",
+    "tooMany": "❌ Zu viele Kugeln! Das sind schon {{count}} Kugeln. Versuche es nochmal! 😅",
+    "finalQuestion": "Wie viel ist das insgesamt?",
+    "finalCorrect": "✅ Richtig! {{ten}} + {{blue}} = {{total}}",
+    "finalWrong": "❌ Leider falsch. {{ten}} + {{blue}} = {{total}}",
+    "footerHelp1": "Mehr Hilfe?",
+    "footerLink1": "Lehrer Schmidt",
+    "footerLink2": "Die Grundschullehrerin"
+  }
+  

@@ -159,7 +159,7 @@ function createBall(color) {
     const container = document.querySelector("main");
     const message = document.createElement("div");
     message.classList.add("success-message");
-    message.innerHTML = "Richtig! Das sind 10 Kugeln 🎉";
+    message.innerHTML = i18next.t("success", { count: 10 });
     container.appendChild(message);
 
   // Animation entfernen nach ein paar Sekunden

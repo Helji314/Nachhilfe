@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <meta charset="utf-8">
-    <title>Übungen Mathematik Klasse 2</title>
+    <meta charset="utf-8" />
+    <title data-i18n="title">Übungen Mathematik Klasse 2</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="button.css.css" />
+    <script src="https://unpkg.com/i18next@23.4.6/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector@7.1.0/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend@2.3.1/i18nextHttpBackend.min.js"></script>
     <style>
-      footer{
-        background-color: #772f6e;
-      }
-      a{
-        color: white;
-      }
-      h1{
-        color: #772f6e;;
-      }
-      h2{
-        color: #772f6e
-      }
+      footer { background-color: #772f6e; }
+      a { color: white; }
+      h1, h2 { color: #772f6e; }
     </style>
   </head>
+
   <body>
-    <header>Mathematik Klasse 2 <br>
+    <header>
+      <span data-i18n="headerTitle">Mathematik Klasse 2</span><br />
       <button id="lang-de" class="button">Deutsch</button>
       <button id="lang-en" class="button">English</button>
-      <button id="lang-fr" class="button">Français</button></header>
+      <button id="lang-fr" class="button">Français</button>
+    </header>
+
     <main>
       <div id="overlay"></div>
+
       <div id="popup">
-        <h2>Aufgabe</h2>
-        <p>Hier sollst du plus (+) rechnen!</p>
-        <p>Nehme erst alle roten Kugeln, dann die Blauen. Zusammen soll es 10 ergeben.</p>
-        <button class="button" id="closePopup">Los geht's!</button>
+        <h2 data-i18n="popupTitle">Aufgabe</h2>
+        <p data-i18n="popupText1">Hier sollst du plus (+) rechnen!</p>
+        <p data-i18n="popupText2">Nehme erst alle roten Kugeln, dann die Blauen. Zusammen soll es 10 ergeben.</p>
+        <button class="button" id="closePopup" data-i18n="popupButton">Los geht's!</button>
       </div>
-      <h1>Plus-Rechnen mit Kugeln</h1>
-  <div class="container">
-    <div id="red-container" class="ball-container">
-      <h2 class="rot">Rote Kugeln</h2>
-    </div>
-    <div id="blue-container" class="ball-container">
-      <h2 class="blau">Blaue Kugeln</h2>
-    </div>
-  </div>
-  <div id="target-container" class="ball-container">
-    <h2>Ziel (Zehnerfeld)</h2>
-  </div>
-  <div class="button-container">
-  <button class="button" onclick="startGame()">Start!</button><br>
-  <button class="button" id="submit-button">Abgabe</button><br>
-  </div>
-  <script type="module" src="functions.js"></script>
+
+      <h1 data-i18n="mainTitle">Plus-Rechnen mit Kugeln</h1>
+
+      <div class="container">
+        <div id="red-container" class="ball-container">
+          <h2 class="rot" data-i18n="redBalls">Rote Kugeln</h2>
+        </div>
+        <div id="blue-container" class="ball-container">
+          <h2 class="blau" data-i18n="blueBalls">Blaue Kugeln</h2>
+        </div>
+      </div>
+
+      <div id="target-container" class="ball-container">
+        <h2 data-i18n="targetTitle">Ziel (Zehnerfeld)</h2>
+      </div>
+
+      <div class="button-container">
+        <button class="button" onclick="startGame()" data-i18n="start">Start!</button><br />
+        <button class="button" id="submit-button" data-i18n="submit">Abgabe</button><br />
+      </div>
+
+      <script type="module" src="functions.js"></script>
     </main>
-    <footer>Mehr Hilfe? <a href="https://www.youtube.com/channel/UCy0FxMgGUlRnkxCoNZUNRQQ">Lehrer Schmidt</a> oder <a href="https://www.youtube.com/@dianawegel">Die Grundschullehrerin</a><br></footer>
+
+    <footer>
+      <span data-i18n="footerHelp">Mehr Hilfe?</span>
+      <a href="https://www.youtube.com/channel/UCy0FxMgGUlRnkxCoNZUNRQQ" target="_blank">Lehrer Schmidt</a>
+      <span data-i18n="footerOr"> oder </span>
+      <a href="https://www.youtube.com/@dianawegel" target="_blank">Die Grundschullehrerin</a>
+    </footer>
   </body>
 </html>
