@@ -5,7 +5,15 @@ const popup = document.getElementById("popup");
 const overlay = document.getElementById("overlay");
 const closePopup = document.getElementById("closePopup");
 
+//zum Übersetzen mit diesem i18next
+i18next.t('title');              // -> in JSON-Datei: "title": ""
+i18next.t('submit');             // -> in JSON-Datei: "submit": ""
+i18next.t('success', { count: 5 });
 
+
+document.getElementById("lang-de"),addEventListener("click");
+document.getElementById("lang-eng"),addEventListener("click");
+document.getElementById("lang-fr"),addEventListener("click"); 
 
 function createBall(color) {
     const ball = document.createElement("div");
@@ -112,7 +120,6 @@ function createBall(color) {
     popup.style.display = "none";
     overlay.style.display = "none";
     // Hier kann die Spiellogik gestartet werden
-    alert("Spiel startet jetzt!");
   });
   function showSuccess() {
     const container = document.querySelector("main");
