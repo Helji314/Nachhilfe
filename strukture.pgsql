@@ -1,10 +1,16 @@
-i18n-demo/
-├── index.html
+/projekt-root
+│
+├── /i18n-demo
+│     └──── /locales
+│             ├── de.json           
+│             ├── en.json           
+│             └── fr.json 
+│
+├── /node_modules
+│     └── functions.js                
+│
 ├── styles.css
 ├── function.js
-│── LICENSE.txt
-├── locales/
-│   ├── en.json
-│   └── de.json
-├── i18next-parser.config.js
-├── package.json
+├── index.html     
+├── package.json          
+└── LICENSE.txt              
