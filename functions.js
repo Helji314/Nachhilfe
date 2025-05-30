@@ -5,15 +5,49 @@ const popup = document.getElementById("popup");
 const overlay = document.getElementById("overlay");
 const closePopup = document.getElementById("closePopup");
 
+import i18next from 'i18next';
+import Backend from 'i18next-http-backend';
+import LanguageDetector from 'i18next-browser-languagedetector';
+
+i18next
+  .use(Backend)
+  .use(LanguageDetector)
+  .init({
+    fallbackLng: 'en',
+    backend: {
+      loadPath: '/locales/{{lng}}.json'
+    }
+  }, () => {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      el.innerText = i18next.t(key);
+    });
+  });
+
+
 //zum Übersetzen mit diesem i18next
 i18next.t('title');              // -> in JSON-Datei: "title": ""
 i18next.t('submit');             // -> in JSON-Datei: "submit": ""
 i18next.t('success', { count: 5 });
+i18next.t('popup')
 
-
-document.getElementById("lang-de"),addEventListener("click");
-document.getElementById("lang-eng"),addEventListener("click");
-document.getElementById("lang-fr"),addEventListener("click"); 
+function changeLanguage(lng) {
+  i18next.changeLanguage(lng, () => {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      el.innerText = i18next.t(key);
+    });
+  });
+}
+document.getElementById("lang-de").addEventListener("click", () => {
+  changeLanguage("de");
+});
+document.getElementById("lang-eng").addEventListener("click", () => {
+  changeLanguage("en");
+});
+document.getElementById("lang-fr").addEventListener("click", () => {
+  changeLanguage("fr");
+});
 
 function createBall(color) {
     const ball = document.createElement("div");
